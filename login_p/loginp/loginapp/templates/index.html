@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--블락 자리에 들어갈게요 ~ 네비게이션바 밑에 ^^-->    
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Bingsu & lion</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/jumbotron/">
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        
+      }
+      .flex-container{
+        display: flex; 
+        flex-wrap: wrap; 
+        float: left;
+      }
+
+      .flex-container > div {
+        width:510px; 
+        background-color: #f1f1f1;
+        margin: 10px;
+        padding: 10px; 
+        
+        }
+
+      .jumbotron{
+          background-image:url(https://pgnqdrjultom1827145.cdn.ntruss.com/img/e7/34/e7348bb3f1e662ff7a4094e5db98dc2681959554a7d39fefa860d40c69066093_v1.jpg) ;
+          
+          background-repeat:repeat ;
+      }
+      
+      .container1{text-align:center;
+          font-weight: 900;
+          
+          font-family: 'Noto Serif KR', serif;
+          font-size:20px;
+          
+      } 
+      
+      .col-md-4{
+        font-family: 'Noto Serif KR', serif;
+        font-size:15px;
+        
+      }
+      
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+  </head>
+  <body>
+  
+
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container1">
+      <h1 class="display-4">Bingsu의 멋사 활동기</h1>
+      <p>멋사 8기 정수빈이 운영하는 블로그입니다.<br>
+       </p>
+      <p></p>
+    </div>
+  </div>
+<!-- 
+  <h3>게시물 미리보기<br>
+  </h3>
+  {% if post %}
+  {% for post in post %}
+  <div class="flex-container">
+    <div class="row">
+      <div class="col-md-4">
+        <a href="{% url 'mypost' %}"><h4>{{ post.posttitle }}</h4></a>
+        <p>{{ post.postcontents }}</p>
+        
+        <hr>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <br>
+  헉! 아직 게시물이 없어요 ㅠㅠ <br>작성하러 가볼까요?<br><br>
+  <p><a class="btn btn-secondary" href="{% url 'addpost' %}" role="button">글쓰러 가기! GO</a></p>
+  {% endif %}
+
+</main> -->
+
+<footer class="container">
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+      </html>
+      
+      </html>
+      
+{% endblock content %}

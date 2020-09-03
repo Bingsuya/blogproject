@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="main">
+    <div class="subject">
+        <h2><span>게시글 수정</span></h2>
+    </div>
+
+    <!--설명-->
+    
+    <fieldset>
+        
+        <!--form action method는 내용 나오는걸 전부 걸어줘야하는 것 같다.-->
+        <form action="{% url 'editpost' %}" method="POST" enctype="multipart/form-data">
+            <input  name = 'post_id' type = 'hidden' value = "{{ aa.id }}" ><!--그 게시물 자체에 id 자동으로 부여(post_id라는 이름으로)-->
+            {% csrf_token %}
+        <div>
+            <input type="text" id="posttitle" name="posttitle" placeholder="{{ aa.posttitle }}" maxlength="20"/> <!--placeholder에 profiletitle 로 기존 타이틀을 보여준다-->
+            <label for="">제목</label>
+        </div>
+        
+        <div>
+            <label for ="date" style = 'font-size :10px'>날짜 :</label>
+                <input class ='login_input'type="date" id="date" name="date" placeholder="날짜" style = 'margin-bottom: 10px; width : 148px'><br>
+        </div>
+
+        <p>사진</p>
+        <input type="file" id = "picture" name="picture" accept="image/*">
+
+        <div>
+            <textarea name="postcontents" id="postcontents" placeholder="{{ aa.postcontents }}" rows="10" cols="55"></textarea> <!--여기에도 기존 컨텐츠 내용-->
+        </div>
+        <input type="submit" value="작성"></a>
+        <p style = 'color : red; font-size: 10px;'>{{ done }}</p>
+        
+    </form>
+    </fieldset>
+<a href="{% url 'mypost' %}">확인하기</a>
+</div>
+    
+{% endblock content%}

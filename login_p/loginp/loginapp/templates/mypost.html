@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+  .flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    float:left;
+  }
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+  .col-md-4{
+        font-family: 'Noto Serif KR', serif;
+        font-size:15px;
+        
+      }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }  
+</style>
+<link href="jumbotron.css" rel="stylesheet">
+<div>
+    <div class="panel panel-default registration">
+        <div class="panel-heading">
+            <h1>게시글</h1>
+        </div>
+        {% for post in post %}
+        <div class="flex-container">
+            <!-- Example row of columns -->
+
+            <div class="row">
+              
+              <div class="col-md-4">
+                <h4>{{ post.posttitle }}</h4>
+                {% if post.picture %}
+                <img src="{{ post.picture.url }}"  alt="dd" width="300px" height="280px">
+                </br>  
+                {% endif %}  
+                <p>{{ post.postcontents }}</p>
+                
+                {% if post.user == request.user %} <!--사진올린 사람 == 사용자-->
+             
+                <form action = '{% url "editpost"  %}' style = "display : inline; "><!--pk 사용 x-->
+                    <input  name = 'post_id' type = 'hidden' value = "{{ post.id }}" >  <!--게시글당 id 받아야함 hidden 으로-->
+                    <button type = 'submit' style = " border: 1px solid blue; background-color: rgba(0,0,0,0); color: blue; padding: 5px;">수정</button>
+                    <p style = 'color : blue; font-size: 10px;'></p>
+                </form>
+                
+                <form action = '{% url "deletepost"  %}' style = "display : inline; ">
+                    <input  name = 'post_id' type = 'hidden' value = "{{ post.id }}" >
+                    <button type = 'submit' style = " border: 1px solid red; background-color: rgba(0,0,0,0); color: red; padding: 5px;">삭제</button>
+                    <p style = 'color : red; font-size: 10px;'></p>
+                </form>
+                {% endif %}
+                <hr>
+                
+              </div>
+              
+              
+            </div>
+        </div>
+        {% endfor %} <!-- /container -->
+          
+    </div>
+    <p><a class="btn btn-secondary" href="{% url 'addpost' %}" role="button">사진 추가하기</a></p>
+</div>
+
+
+{% endblock content %}

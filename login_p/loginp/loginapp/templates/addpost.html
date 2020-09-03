@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<div id="main">
+    <div class="subject">
+        <h2><span>게시글 추가</span></h2>
+    </div>
+
+    <!--설명-->
+    
+    <fieldset>
+        
+        <form action="{% url 'addpost' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div>
+            <input type="text" id="posttitle" name="posttitle" placeholder="제목을 입력해주세요" maxlength="20"/> <!--placeholder에 profiletitle 로 기존 타이틀을 보여준다-->
+            <label for="">제목</label>
+        </div>
+        
+        <div>
+                <input class ='login_input'type="date" id="date" name="date" placeholder="날짜" style = 'margin-bottom: 10px; width : 148px'>
+                <label for="date">날짜</label>
+        </div>
+
+        <input type="file" id = "picture" name="picture" accept="image/*">
+        <label for="">사진</label>
+        <div>
+            <textarea name="postcontents" id="postcontents" placeholder="내용을 입력해주세요" rows="10" cols="55"></textarea> <!--여기에도 기존 컨텐츠 내용-->
+        </div>
+        <input type="submit" value="작성"></a>
+        <p style = 'color : red; font-size: 10px;'>{{ done }}</p>
+        
+    </form>
+    </fieldset>
+<a href="{% url 'mypost' %}">확인하기</a>
+</div>
+    
+{% endblock content %}
